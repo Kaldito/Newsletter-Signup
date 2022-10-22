@@ -16,6 +16,7 @@ const api_key = result.parsed.API_KEY;
 const API_ROOT = "https://us13.api.mailchimp.com/3.0/";
 let api_endpoint = "/lists/" + audience_id;
 let api_url = API_ROOT + api_endpoint;
+const PORT = process.env.PORT || 3030
 
 app.get("/", function(req, res){
     res.sendFile(__dirname + "/index.html");
@@ -61,6 +62,6 @@ app.post("/", function(req, res){
     request.end();
 })
 
-app.listen(3000, function(){
-    console.log("Server is running on port 3000");
+app.listen(PORT, function(){
+    console.log("Server is running on port " + PORT);
 })
